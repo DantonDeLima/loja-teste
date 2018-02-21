@@ -1,15 +1,15 @@
-<?php include("cabecalho.php") ?>
-<?php 
+<?php include("cabecalho.php")
 
-	function insereProduto($conexao, $nome, $preco) {
-		$query = "insert into produtos (nome, preco) values ('{$nome}', {$preco})";
-		return mysqli_query($conexao, $query);
-	}
+include("conecta.php")
 
+include("banco-produto.php");
+
+
+	
 
 	$nome = $_GET['nome'];
 	$preco = $_GET['preco'];
-	$conexao = mysqli_connect('localhost', 'root', 'root', 'loja');	
+	
 	
 	if(insereProduto($conexao, $nome, $preco)) { ?>
 		<p class="text-success">Produto <?= $nome?> de preço R$ <?= $preco?> adicionado com sucesso!</p>
